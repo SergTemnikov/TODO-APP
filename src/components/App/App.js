@@ -3,9 +3,9 @@ import { CssBaseline, Typography, Box, Divider } from '@mui/material'
 import PostList from '../PostList/PostList'
 import PostForm from '../PostForm/PostForm'
 import Header from '../Header/Header'
+import SelectForm from '../SelectForm/SelectForm'
 
 const App = () => {
-
   const [posts, setPosts] = useState([])
 
   const createPost = (newPost) => {
@@ -21,15 +21,17 @@ const App = () => {
       <CssBaseline />
       <Header />
       <PostForm create={createPost} />
-      <Divider sx={{marginBottom: '10px'}} />
+      <Divider sx={{ marginBottom: '10px' }} />
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <SelectForm />
+      </Box>
       {
         posts.length
-          ? <PostList posts={posts} title='Post List #01' remove={removePost} />
+          ? <PostList posts={posts} title='Post List' remove={removePost} />
           : <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Typography variant='h4'>No Posts Found...</Typography>
+            <Typography variant='h6' sx={{ color: 'grey' }}>No Posts Found...</Typography>
           </Box>
       }
-
 
     </>
   )

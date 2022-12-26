@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, TextField, Button } from '@mui/material'
 
-const PostForm = ({create, remove}) => {
+const PostForm = ({create}) => {
 
   const [post, setPost] = useState({
     title: '',
