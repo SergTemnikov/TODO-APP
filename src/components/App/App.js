@@ -23,7 +23,12 @@ const App = () => {
       <PostForm create={createPost} />
       <Divider sx={{ marginBottom: '10px' }} />
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <SelectForm />
+        <SelectForm
+          defaultValue={'None'}
+          options={[
+            { value: 'title', name: 'By Title' },
+            { value: 'body', name: 'By Description' }
+          ]} />
       </Box>
       {
         posts.length
