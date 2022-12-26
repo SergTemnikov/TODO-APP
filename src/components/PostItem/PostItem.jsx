@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Card, Typography, Button } from '@mui/material'
 
-const PostItem = ({post, number}) => {
+const PostItem = ({post, number, remove}) => {
 
   return (
     <Box id='post' sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -12,7 +12,7 @@ const PostItem = ({post, number}) => {
             <Typography variant='p'>{post.body}</Typography>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'end' }}>
-            <Button variant='contained' color='error'>Удалить</Button>
+            <Button onClick={() => remove(post)} variant='contained' color='error'>Удалить</Button>
           </Box>
         </Card>
       </Box>
