@@ -7,6 +7,7 @@ import SelectForm from '../SelectForm/SelectForm'
 
 const App = () => {
   const [posts, setPosts] = useState([])
+  const [selectedSort, setSelectedSort] = useState('')
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost])
@@ -14,6 +15,11 @@ const App = () => {
 
   const removePost = (post) => {
     setPosts(posts.filter(p => p.id !== post.id))
+  }
+
+  const sortPosts = (sort) => {
+    setSelectedSort(sort)
+    console.log(selectedSort);
   }
 
   return (
@@ -24,7 +30,9 @@ const App = () => {
       <Divider sx={{ marginBottom: '10px' }} />
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <SelectForm
-          defaultValue={'None'}
+          defaultValue='None'
+          value={selectedSort}
+          onChange={sortPosts}
           options={[
             { value: 'title', name: 'By Title' },
             { value: 'body', name: 'By Description' }
